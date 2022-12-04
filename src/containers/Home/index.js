@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 
 const Home = (props) => {
   const [color, setColor] = useState("");
   const [movie, setMovie] = useState("");
 
-  const onChangeHandler = (e) => {
+  const onChangeHandler = useCallback((e) => {
     if (e.target.id === "color") setColor(e.target.value);
     else setMovie(e.target.value);
-  };
+  }, []);
 
   return (
     <>
