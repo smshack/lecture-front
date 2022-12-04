@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 
 const Home = (props) => {
@@ -94,8 +94,8 @@ const getMovieGenreKor = (movie) => {
 };
 
 const Info = ({ color, movie }) => {
-  const colorKor = getColorKor(color);
-  const movieGenreKor = getMovieGenreKor(movie);
+  const colorKor = useMemo(() => getColorKor(color), [color]);
+  const movieGenreKor = useMemo(() => getMovieGenreKor(movie), [movie]);
 
   return (
     <div className="info-wrapper">
